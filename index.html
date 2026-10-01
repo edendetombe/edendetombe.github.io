@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eden DeTombe | Data Analytics Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #f7f8fa;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 8%;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #172554;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #4b5563;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #172554;
+        }
+
+        /* Hero */
+        .hero {
+            background: white;
+            padding: 110px 8% 100px;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .eyebrow {
+            color: #2563eb;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1.05;
+            color: #172554;
+            max-width: 850px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #4b5563;
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .primary {
+            background: #172554;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1e3a8a;
+        }
+
+        .secondary {
+            border: 1px solid #cbd5e1;
+            color: #172554;
+            background: white;
+        }
+
+        .secondary:hover {
+            background: #f1f5f9;
+        }
+
+        /* Sections */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #2563eb;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #172554;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .section-intro {
+            max-width: 720px;
+            color: #64748b;
+            font-size: 17px;
+            margin-bottom: 45px;
+        }
+
+        /* About */
+        .about {
+            background: #f7f8fa;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 18px;
+            color: #4b5563;
+        }
+
+        .focus-box {
+            background: white;
+            padding: 30px;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+        }
+
+        .focus-box h3 {
+            color: #172554;
+            margin-bottom: 15px;
+        }
+
+        .focus-box ul {
+            list-style: none;
+        }
+
+        .focus-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eef0f3;
+            color: #4b5563;
+        }
+
+        /* Projects */
+        .projects {
+            background: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 30px;
+            background: white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+        }
+
+        .project-number {
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            color: #172554;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+
+        .tools {
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .coming-soon {
+            opacity: 0.75;
+        }
+
+        /* Skills */
+        .skills {
+            background: #f7f8fa;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .skill-card h3 {
+            color: #172554;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #64748b;
+        }
+
+        /* Contact */
+        .contact {
+            background: #172554;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact p {
+            color: #cbd5e1;
+            max-width: 650px;
+            margin: 0 auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            border: 1px solid #64748b;
+            padding: 10px 18px;
+            border-radius: 6px;
+        }
+
+        .contact-links a:hover {
+            background: #1e3a8a;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        /* Mobile */
+        @media (max-width: 750px) {
+            nav ul {
+                display: none;
+            }
+
+            .about-grid,
+            .project-grid,
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 75px;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">ED</div>
+
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+
+            <div class="eyebrow">Data Analytics Portfolio</div>
+
+            <h1>
+                Turning complex data into clear, actionable insights.
+            </h1>
+
+            <p>
+                Data analytics and business intelligence projects focused on
+                higher education, institutional effectiveness, data governance,
+                and decision support.
+            </p>
+
+            <div class="buttons">
+                <a href="#projects" class="button primary">
+                    View My Projects
+                </a>
+
+                <a href="#contact" class="button secondary">
+                    Get In Touch
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="section-container">
+
+            <div class="section-label">About</div>
+
+            <h2>About Me</h2>
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <p>
+                        I am developing a career in data analytics and
+                        business intelligence, with a particular interest in
+                        using data to improve organizational decision-making
+                        and operational effectiveness.
+                    </p>
+
+                    <p>
+                        My background combines political science, higher
+                        education, student services, and business analytics.
+                        I am currently developing technical skills in SQL,
+                        R, Python, Power BI, Excel, and data visualization.
+                    </p>
+
+                    <p>
+                        My portfolio focuses on projects that demonstrate
+                        not only technical analysis, but also data quality,
+                        documentation, communication, governance, and
+                        practical business applications.
+                    </p>
+
+                </div>
+
+                <div class="focus-box">
+
+                    <h3>Areas of Focus</h3>
+
+                    <ul>
+                        <li>Data Analytics</li>
+                        <li>Business Intelligence</li>
+                        <li>Institutional Effectiveness</li>
+                        <li>Higher Education Analytics</li>
+                        <li>Data Governance</li>
+                        <li>Process Improvement</li>
+                        <li>Responsible AI</li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+        <div class="section-container">
+
+            <div class="section-label">Portfolio</div>
+
+            <h2>Featured Projects</h2>
+
+            <p class="section-intro">
+                A collection of analytics projects demonstrating data
+                preparation, analysis, visualization, documentation,
+                and decision support.
+            </p>
+
+            <div class="project-grid">
+
+                <div class="project-card coming-soon">
+
+                    <div class="project-number">01</div>
+
+                    <h3>
+                        Student Success & Retention Dashboard
+                    </h3>
+
+                    <p>
+                        An institutional analytics project examining
+                        enrollment, retention, academic performance,
+                        and student characteristics.
+                    </p>
+
+                    <div class="tools">
+                        SQL · Power BI · Excel
+                    </div>
+
+                </div>
+
+
+                <div class="project-card coming-soon">
+
+                    <div class="project-number">02</div>
+
+                    <h3>
+                        Institutional Data Governance
+                    </h3>
+
+                    <p>
+                        A data governance case study focused on standardized
+                        definitions, data quality, metadata, and
+                        source-of-truth practices.
+                    </p>
+
+                    <div class="tools">
+                        SQL · Excel · Data Governance
+                    </div>
+
+                </div>
+
+
+                <div class="project-card coming-soon">
+
+                    <div class="project-number">03</div>
+
+                    <h3>
+                        Financial Aid & College Access Analysis
+                    </h3>
+
+                    <p>
+                        An analysis of higher-education financial aid and
+                        enrollment patterns using publicly available data.
+                    </p>
+
+                    <div class="tools">
+                        Python · R · Power BI
+                    </div>
+
+                </div>
+
+
+                <div class="project-card coming-soon">
+
+                    <div class="project-number">04</div>
+
+                    <h3>
+                        Student Experience Survey Analysis
+                    </h3>
+
+                    <p>
+                        Statistical analysis of student survey responses
+                        to identify patterns in satisfaction and student
+                        support services.
+                    </p>
+
+                    <div class="tools">
+                        R · Python · Statistics
+                    </div>
+
+                </div>
+
+
+                <div class="project-card coming-soon">
+
+                    <div class="project-number">05</div>
+
+                    <h3>
+                        Higher Education Workflow Automation
+                    </h3>
+
+                    <p>
+                        A process improvement case study demonstrating
+                        how automation can reduce manual work and improve
+                        information management.
+                    </p>
+
+                    <div class="tools">
+                        Power Automate · SharePoint · Microsoft 365
+                    </div>
+
+                </div>
+
+
+                <div class="project-card coming-soon">
+
+                    <div class="project-number">06</div>
+
+                    <h3>
+                        Responsible AI & Institutional Information
+                    </h3>
+
+                    <p>
+                        A framework for preparing institutional information
+                        for responsible AI and decision-support applications.
+                    </p>
+
+                    <div class="tools">
+                        AI Governance · Data Stewardship
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="section-container">
+
+            <div class="section-label">Capabilities</div>
+
+            <h2>Skills & Tools</h2>
+
+            <div class="skill-grid">
+
+                <div class="skill-card">
+                    <h3>Data Analysis</h3>
+                    <p>
+                        SQL · R · Python · Excel · Data Cleaning ·
+                        Statistical Analysis
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Business Intelligence</h3>
+                    <p>
+                        Power BI · Power Query · Data Visualization ·
+                        Dashboard Development
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Data Management</h3>
+                    <p>
+                        Data Validation · Data Quality · Data Governance ·
+                        Metadata · Documentation
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Business & Institutional Research</h3>
+                    <p>
+                        Higher Education · Institutional Effectiveness ·
+                        Decision Support · Process Improvement
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+
+            <div class="section-label">Connect</div>
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                I am interested in opportunities involving data analytics,
+                business intelligence, institutional effectiveness,
+                and data-driven decision making.
+            </p>
+
+            <div class="contact-links">
+
+                <a href="https://github.com/edendetombe">
+                    GitHub
+                </a>
+
+                <!-- Replace these with your actual links -->
+                <a href="#">
+                    LinkedIn
+                </a>
+
+                <a href="#">
+                    Email
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Eden DeTombe · Data Analytics Portfolio
+    </footer>
+
+</body>
+</html>
